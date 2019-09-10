@@ -7,10 +7,29 @@ const schema = new Schema({
     type: String
   },
 
-  stats: {
-    type: Schema.Types.ObjectId,
-    ref: "Stats",
-    required: false
+  hp: {
+    type: Number,
+    required: true
+  },
+  attack: {
+    type: Number,
+    required: true
+  },
+  defense: {
+    type: Number,
+    required: true
+  },
+  spattack: {
+    type: Number,
+    required: true
+  },
+  spdefense: {
+    type: Number,
+    required: true
+  },
+  speed: {
+    type: Number,
+    required: true
   },
 
   entrenador: {
@@ -23,7 +42,7 @@ const schema = new Schema({
     {
       type: Schema.Types.ObjectId,
       ref: "Type",
-      required: false
+      required: true
     }
   ]
 });
