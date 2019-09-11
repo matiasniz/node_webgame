@@ -1,10 +1,10 @@
 import express from "express";
-import { entrenadorController } from "./../controllers";
+import { entrenadorController as controller } from "./../controllers";
 
-export const entrenadoresRoutes = express.Router();
+export const router = express.Router();
 
-entrenadoresRoutes.get("/", (req, res, next) => {
-  res.send("respond with a resource");
-});
-
-entrenadoresRoutes.post("/", entrenadorController.createEntrenador);
+router.get("/", controller.findAll);
+router.get("/:id", controller.findById);
+router.post("/", controller.create);
+router.put("/:id", controller.update);
+router.delete("/:id", controller.remove);

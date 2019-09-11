@@ -1,3 +1,3 @@
-export { entrenadorController } from "./entrenadorController";
-export { pokemonController } from "./pokemonController";
-export { typeController } from "./typeController";
+export { controller as entrenadorController } from "./entrenadorController";
+export { controller as pokemonController } from "./pokemonController";
+export { controller as typeController } from "./typeController";

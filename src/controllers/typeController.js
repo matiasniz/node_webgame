@@ -1,10 +1,10 @@
-import { TypeRepository } from "../db/lib";
+import { TypeRepository as repository } from "../db/lib";
 
-const createType = async (req, res) => {
+const findById = async (req, res) => {
   try {
-    const type = req.body;
-    const newtype = await TypeRepository.create(type);
-    res.json(newtype);
+    const id = req.params.id;
+    const item = await repository.findById(id);
+    res.json(item);
   } catch (error) {
     res.status(500).json({
       error
@@ -12,6 +12,58 @@ const createType = async (req, res) => {
   }
 };
 
-export const typeController = {
-  createType
+const findAll = async (req, res) => {
+  try {
+    const items = await repository.findAll();
+    res.json(items);
+  } catch (error) {
+    res.status(500).json({
+      error
+    });
+  }
+};
+
+const create = async (req, res) => {
+  try {
+    const type = req.body;
+    const newItem = await repository.create(type);
+    res.json(newItem);
+  } catch (error) {
+    res.status(500).json({
+      error
+    });
+  }
+};
+
+const update = async (req, res) => {
+  try {
+    const id = req.params.id;
+    const type = req.body;
+    const updatedResponse = await repository.update(id, type);
+    res.json(updatedResponse);
+  } catch (error) {
+    res.status(500).json({
+      error
+    });
+  }
+};
+
+const remove = async (req, res) => {
+  try {
+    const id = req.params.id;
+    const item = await repository.remove(id);
+    res.json(item);
+  } catch (error) {
+    res.status(500).json({
+      error
+    });
+  }
+};
+
+export const controller = {
+  create,
+  update,
+  findAll,
+  findById,
+  remove
 };

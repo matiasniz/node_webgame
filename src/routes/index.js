@@ -1,7 +1,7 @@
 import express from "express";
-import { entrenadoresRoutes } from "./entrenadoresRoutes";
-import { pokemonesRoutes } from "./pokemonesRoutes";
-import { typesRoutes } from "./typesRoutes";
+import { router as entrenadoresRoutes } from "./entrenadoresRoutes";
+import { router as pokemonesRoutes } from "./pokemonesRoutes";
+import { router as typesRoutes } from "./typesRoutes";
 
 export const api = express.Router();
 

@@ -6,15 +6,19 @@
     "start": "nodemon --exec babel-node src/index.js"
   },
   "dependencies": {
+    "@babel/runtime": "^7.6.0",
     "cors": "^2.8.5",
     "express": "^4.16.4",
     "mongod": "^2.0.0",
-    "mongoose": "^5.7.0"
+    "mongoose": "^5.7.0",
+    "mongoose-autopopulate": "^0.9.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.6.0",
     "@babel/core": "^7.6.0",
     "@babel/node": "^7.6.1",
+    "@babel/plugin-transform-regenerator": "^7.4.5",
+    "@babel/plugin-transform-runtime": "^7.6.0",
     "@babel/preset-env": "^7.6.0",
     "nodemon": "^1.19.2"
   }

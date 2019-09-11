@@ -1,9 +1,9 @@
 import express from "express";
-import { typeController } from "./../controllers";
-export const typesRoutes = express.Router();
+import { typeController as controller } from "./../controllers";
+export const router = express.Router();
 
-typesRoutes.get("/", (req, res, next) => {
-  res.send("respond with a resource");
-});
-
-typesRoutes.post("/", typeController.createType);
+router.get("/", controller.findAll);
+router.get("/:id", controller.findById);
+router.post("/", controller.create);
+router.put("/:id", controller.update);
+router.delete("/:id", controller.remove);

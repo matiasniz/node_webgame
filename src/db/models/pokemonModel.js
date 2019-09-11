@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import autopopulate from "mongoose-autopopulate";
 
 const { Schema } = mongoose;
 
@@ -35,16 +36,18 @@ const schema = new Schema({
   entrenador: {
     type: Schema.Types.ObjectId,
     ref: "Entrenador",
-    required: false
+    autopopulate: true
   },
 
   type: [
     {
       type: Schema.Types.ObjectId,
       ref: "Type",
-      required: true
+      autopopulate: true
     }
   ]
 });
+
+schema.plugin(autopopulate);
 
 export const PokemonModel = mongoose.model("Pokemon", schema, "pokemones");
